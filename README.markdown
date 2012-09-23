@@ -17,3 +17,7 @@ For a full description of the language, see the [SICKBAY article][] on the
 This is the reference distribution for SICKBAY.  It contains SAWBONES,
 Cat's Eye Technologies' reference implementation of SICKBAY, written in
 Python.
+
+[Strelnokoff]: http://catseye.tc/projects/strelnokoff/
+[SICKBAY article]: http://esolangs.org/wiki/SICKBAY
+[esolangs.org wiki]: http://esolangs.org/wiki/

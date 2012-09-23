@@ -219,6 +219,12 @@ class Parser(object):
             return AST('Prolong', [dest])
         elif self.scanner.consume("CUTSHORT"):
             return AST('Cutshort')
+        elif self.scanner.consume("DIM"):
+            self.scanner.expect("RING")
+            self.scanner.expect("(")
+            e = self.expr()
+            self.scanner.expect(")")
+            return AST('DimRing', [e])
         elif self.scanner.consume("LET"):
             var = self.intvar()
             self.scanner.expect('=')
@@ -428,6 +434,8 @@ def exec_stmt(stmt, store, ring, infile=sys.stdin, outfile=sys.stdout):
         return ('return', 0)
     elif stmt.type == 'Cutshort':
         ring.cutshort()
+    elif stmt.type == 'DimRing':
+        ring.dim(eval_expr(stmt.children[0], store))
     elif stmt.type == 'Remark':
         return None
     else:
