@@ -11,12 +11,17 @@ SICKBAY is an esoteric dialect of BASIC with two salient features:
     It thus lacks an `IF` statement because, similar to [Strelnokoff][], it
     doesn't need one.
 
-For a full description of the language, see the [SICKBAY article][] on the
-[esolangs.org wiki][].
+This is the reference distribution for SICKBAY.  It contains:
 
-This is the reference distribution for SICKBAY.  It contains SAWBONES,
-Cat's Eye Technologies' reference implementation of SICKBAY, written in
-Python.
+*   the normative description (i.e. specification) of the language -- see the
+    file `SICKBAY.markdown` in the `doc` directory.
+*   other notes on the language, also in the `doc` directory.
+*   SAWBONES, Cat's Eye Technologies' reference implementation of SICKBAY,
+    written in Python, in the `src` directory.
+*   several small example SICKBAY programs in the `eg` directory.
+
+For more information on the language, see the [SICKBAY article][] on the
+[esolangs.org wiki][].
 
 [Strelnokoff]: http://catseye.tc/projects/strelnokoff/
 [SICKBAY article]: http://esolangs.org/wiki/SICKBAY
