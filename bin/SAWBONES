@@ -433,6 +433,8 @@ def exec_stmt(stmt, store, ring, infile=sys.stdin, outfile=sys.stdout):
     elif stmt.type == 'Return':
         return ('return', 0)
     elif stmt.type == 'Cutshort':
+        if ring.is_empty():
+            return ('return', 0)
         ring.cutshort()
     elif stmt.type == 'DimRing':
         ring.dim(eval_expr(stmt.children[0], store))
@@ -604,7 +606,7 @@ def exec_program(prog, store, ring, infile=sys.stdin, outfile=sys.stdout):
         r = exec_line(line, store, ring, infile=infile, outfile=outfile)
         lines = Lines(prog, store)
         if r is None:
-            line_number = lines.seek_line_number(line_number + 1)
+            line_number = lines.seek_line_number(line_number)
             if line_number is None:
                 line_number = re_tu_rn()
                 if line_number is None:
