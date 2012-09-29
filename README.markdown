@@ -17,7 +17,7 @@ This is the reference distribution for SICKBAY.  It contains:
     file `SICKBAY.markdown` in the `doc` directory.
 *   other notes on the language, also in the `doc` directory.
 *   SAWBONES, Cat's Eye Technologies' reference implementation of SICKBAY,
-    written in Python, in the `src` directory.
+    written in Python, in the `script` directory.
 *   several small example SICKBAY programs in the `eg` directory.
 
 For more information on the language, see the [SICKBAY article][] on the
