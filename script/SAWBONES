@@ -637,7 +637,7 @@ def main(argv):
     (options, args) = optparser.parse_args(argv[1:])
     if options.test:
         import doctest
-        (fails, something) = doctest.testmod()
+        (fails, something) = doctest.testmod(verbose=True)
         if fails == 0:
             print "All tests passed."
             sys.exit(0)
