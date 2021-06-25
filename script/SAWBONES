@@ -78,7 +78,7 @@ class Scanner(object):
             self.type = type
             self.token = match.group(token_group)
             self.text = match.group(rest_group)
-            #print >>sys.stderr, "(%r/%s->%r)" % (self.token, self.type, self.text)
+            # print >>sys.stderr, "(%r/%s->%r)" % (self.token, self.type, self.text)
             return True
 
     def scan(self):
@@ -512,7 +512,7 @@ class RingBuffer(object):
     Traceback (most recent call last):
     ...
     ValueError: ring buffer empty
-    
+
     >>> r = RingBuffer()
     >>> r.push(100)
     >>> r.capacity
