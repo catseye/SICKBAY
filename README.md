@@ -14,7 +14,7 @@ SICKBAY is an esoteric dialect of BASIC with two salient features:
 This is the reference distribution for SICKBAY.  It contains:
 
 *   the normative description (i.e. specification) of the language -- see the
-    file `SICKBAY.markdown` in the `doc` directory.
+    file [`SICKBAY.md`](doc/SICKBAY.md) in the `doc` directory.
 *   other notes on the language, also in the `doc` directory.
 *   SAWBONES, Cat's Eye Technologies' reference implementation of SICKBAY,
     written in Python, in the `script` directory.
