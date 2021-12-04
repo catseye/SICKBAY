@@ -9,6 +9,9 @@ import re
 import sys
 
 
+DEBUG = False
+
+
 class AST(object):
     def __init__(self, type, children=None, value=None):
         self.type = type
@@ -75,7 +78,7 @@ class Scanner(object):
             self.type = type
             self.token = match.group(token_group)
             self.text = match.group(rest_group)
-            #print >>sys.stderr, "(%r/%s->%r)" % (self.token, self.type, self.text)
+            # print >>sys.stderr, "(%r/%s->%r)" % (self.token, self.type, self.text)
             return True
 
     def scan(self):
@@ -104,7 +107,7 @@ class Scanner(object):
         if self.scan_pattern(r'.', 'unknown character'):
             return
         else:
-            raise ValueError, "this should never happen, self.text=(%s)" % self.text
+            raise ValueError("this should never happen, self.text=(%s)" % self.text)
 
     def expect(self, token):
         if self.token == token:
@@ -312,7 +315,7 @@ def eval_expr(e, store):
             if rhs == 0:
                 return 0
             else:
-                return lhs / rhs
+                return lhs // rhs
         else:
             raise NotImplementedError(e.value)
 
@@ -348,7 +351,13 @@ def read_int(infile):
 
 def exec_stmt(stmt, store, ring, infile=sys.stdin, outfile=sys.stdout):
     r"""
-    >>> from StringIO import StringIO
+    >>> try:
+    ...     # Python 2
+    ...     from StringIO import StringIO
+    ... except ImportError:
+    ...     # Python 3
+    ...     from io import StringIO
+
     >>> out = StringIO()
     >>> exec_stmt(Parser('PRINT "HI"').stmt(), {'B%': {0: 88}}, None, outfile=out)
     >>> out.getvalue()
@@ -446,27 +455,30 @@ def exec_stmt(stmt, store, ring, infile=sys.stdin, outfile=sys.stdout):
 
 def exec_line(line, store, ring, infile=sys.stdin, outfile=sys.stdout):
     r"""
-    >>> from StringIO import StringIO
+    >>> try:
+    ...     # Python 2
+    ...     from StringIO import StringIO
+    ... except ImportError:
+    ...     # Python 3
+    ...     from io import StringIO
+
     >>> out = StringIO()
     >>> exec_line(Parser('10 PRINT "HI";:PRINT "LO"').line(), {}, None, outfile=out)
     >>> out.getvalue()
     'HILO\n'
 
-    >>> from StringIO import StringIO
     >>> out = StringIO()
     >>> exec_line(Parser('(0-50) PRINT "HI":GOTO 50').line(), {}, None, outfile=out)
     ('goto', 50)
     >>> out.getvalue()
     'HI\n'
 
-    >>> from StringIO import StringIO
     >>> out = StringIO()
     >>> exec_line(Parser('10 GOSUB 50:PRINT "HI"').line(), {}, None, outfile=out)
     ('gosub', 50)
     >>> out.getvalue()
     ''
 
-    >>> from StringIO import StringIO
     >>> out = StringIO()
     >>> exec_line(Parser('1 LET A%(23)=5:PRINT A%(23)').line(), {}, None, outfile=out)
     >>> out.getvalue()
@@ -500,7 +512,7 @@ class RingBuffer(object):
     Traceback (most recent call last):
     ...
     ValueError: ring buffer empty
-    
+
     >>> r = RingBuffer()
     >>> r.push(100)
     >>> r.capacity
@@ -569,9 +581,9 @@ class Lines(object):
                 self.largest = line_no
             tmp.append((line_no, text_line, line))
         self.lines = sorted(tmp)
-        if False:
+        if DEBUG:
             for (line_no, text_line, line) in self.lines:
-                print line_no, text_line, str(line.children[1])[:50] + '...'
+                print(line_no, text_line, str(line.children[1])[:50] + '...')
 
     def seek_line_number(self, line_number):
         i = 0
@@ -622,8 +634,8 @@ def exec_program(prog, store, ring, infile=sys.stdin, outfile=sys.stdout):
                 return
         else:
             raise NotImplementedError
-        if False:
-            print "AT LINE %d" % line_number
+        if DEBUG:
+            print("AT LINE %d" % line_number)
 
 
 def main(argv):
@@ -639,7 +651,7 @@ def main(argv):
         import doctest
         (fails, something) = doctest.testmod(verbose=True)
         if fails == 0:
-            print "All tests passed."
+            print("All tests passed.")
             sys.exit(0)
         else:
             sys.exit(1)
