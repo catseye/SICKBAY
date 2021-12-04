@@ -1,6 +1,12 @@
 SICKBAY
 =======
 
+_Wiki entry_ [@ esolangs.org](https://esolangs.org/wiki/SICKBAY)
+| _See also:_ [ILLGOL](https://github.com/catseye/Illgol-Grand-Mal#readme)
+∘ [yucca](https://github.com/catseye/yucca#readme)
+
+- - - -
+
 SICKBAY is an esoteric dialect of BASIC with two salient features:
 
 *   While most BASICs support a call stack which is used to implement `GOSUB`
@@ -23,6 +29,13 @@ This is the reference distribution for SICKBAY.  It contains:
 For more information on the language, see the [SICKBAY article][] on the
 [esolangs.org wiki][].
 
-[Strelnokoff]: http://catseye.tc/projects/strelnokoff/
-[SICKBAY article]: http://esolangs.org/wiki/SICKBAY
-[esolangs.org wiki]: http://esolangs.org/wiki/
+Other Implementations
+---------------------
+
+Jeremy List has written a SICKBAY interpreter in Haskell.  It can be found
+here: [sickbay.hs][].
+
+[Strelnokoff]: https://catseye.tc/projects/strelnokoff/
+[SICKBAY article]: https://esolangs.org/wiki/SICKBAY
+[esolangs.org wiki]: https://esolangs.org/wiki/
+[sickbay.hs]: https://gist.github.com/quickdudley/51660f98be16653682cf9a8249a57dcb
