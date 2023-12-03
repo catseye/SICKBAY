@@ -2,8 +2,8 @@ SICKBAY
 =======
 
 _Wiki entry_ [@ esolangs.org](https://esolangs.org/wiki/SICKBAY)
-| _See also:_ [ILLGOL](https://github.com/catseye/Illgol-Grand-Mal#readme)
-∘ [yucca](https://github.com/catseye/yucca#readme)
+| _See also:_ [ILLGOL](https://codeberg.org/catseye/Illgol-Grand-Mal#illgol-grand-mal)
+∘ [yucca](https://codeberg.org/catseye/yucca#yucca)
 
 - - - -
 
